@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+  <title>Hamburger Menu</title>
+  <style>
+    *{
+      padding:0;
+      margin:0;
+      box-sizing:border-box;
+      font-family: 'Pathway Gothic One', sans-serif;
+      letter-spacing:0.2em;
+    }
+    body{
+      font-family:monospace;
+      overflow:hidden;
+    }
+    .container{
+      position:relative;
+      height:100vh;
+      width:100%;
+      background:url('barber.jpg') no-repeat;
+      background-size:cover;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+    .container:before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background-color:rgba(0,0,0,0.5);
+    }
+    .content{
+      max-width:800px;
+      padding:40px;
+      position:relative;
+      z-index:1;
+    }
+    .content h1{
+      font-size:45px;
+      margin-bottom:10px;
+      color:white;
+      font-family: 'Kaushan Script', cursive;
+    }
+    .content h2{
+      font-size:20px;
+      color:white;
+    }
+    .content p{
+      color:white;
+      font-size:16px;
+      margin-bottom:20px;
+      padding:10px;
+    }
+    .btn{
+      padding: 10px 20px;
+      margin-top:30px;
+      color:white;
+      background-color:black;
+      text-decoration:none;
+      display:inline-block;
+      transition:0.3s;
+      cursor:pointer;
+      text-transform:uppercase;
+    }
+    .btn:hover{
+      background-color:grey;
+    }
+    .menu-container{
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:2;
+    }
+    .toggler{
+      position:absolute;
+      top:20px;
+      left:20px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      opacity:0;
+      z-index:3;
+      cursor:pointer;
+    }
+    .hamburger{
+      position:absolute;
+      top:20px;
+      left:20px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background-color:#111;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:2;
+    }
+    .hamburger>div{
+      position:absolute;
+      width:50%;
+      height:3px;
+      border-radius:1.5px;
+      background-color:white;
+      transition:0.4s;
+    }
+    .hamburger>div:before, .hamburger>div:after{
+      content:"";
+      position:absolute;
+      width:100%;
+      height:3px;
+      border-radius:1.5px;
+      background-color:white;
+      transition:0.4s;
+    }
+    .hamburger>div:before{
+      top:-10px;
+    }
+    .hamburger>div:after{
+      top:10px;
+    }
+    .toggler:checked + .hamburger>div{
+      transform:rotate(135deg);
+    }
+    .toggler:checked + .hamburger>div:after, .toggler:checked + .hamburger>div:before{
+      transform:rotate(90deg);
+      top:0;
+    }
+    .toggler:checked ~.menu{
+      visibility:visible;
+    }
+    .toggler:checked~.menu >div{
+      transform:translateX(-50%) translateY(-50%);
+    }
+    .toggler:checked ~.menu >div>div{
+      opacity:1;
+    }
+    .menu{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      transition:0.6s;
+      visibility:hidden;
+      text-transform:uppercase;
+    }
+    .menu>div{
+      position:absolute;
+      width:1600px;
+      height:1600px;
+      border-radius:50%;
+      top:50%;
+      left:50%;
+      transform:translateX(-150%) translateY(-50%);
+      background-color:rgba(0,0,0,0.95);
+      transition:0.6s;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .menu>div>div{
+      max-width: 90vw;
+      max-height:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      opacity:0;
+    }
+    .menu>div>div>ul>li{
+      list-style:none;
+    }
+    .menu>div>div>ul>li>a{
+      text-decoration:none;
+      margin:20px;
+      display:inline-block;
+      font-size:40px;
+      color:white;
+      transition:0.3s;
+    }
+    .menu>div>div>ul>li>a:hover{
+      color:darkgrey;
+    }
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="menu-container">
+    <input type="checkbox" class="toggler">
+    <div class="hamburger">
+      <div></div>
+    </div>
+
+    <div class="menu">
+      <div>
+        <div>
+          <ul>
+            <li><a href="#">Welcome</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Book a Seat</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="content">
+      <h1>Nishimori</h1>
+      <h2>premium barbershop based in Westwood Blvd, Los Angeles</h2>
+      <p>a new wave of modern barber culture inspired by the traditional Japanese barber shops of Harajuku</p>
+      <a href="#" class="btn">lookbook</a>
+    </div>
+  </div>
+
+
+
+
+
+
+</body>
+</html>
